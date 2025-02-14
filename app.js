@@ -1,2 +1,6 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-// Probando los cambios en la nueva rama
+// Variables
+let nombresUsuario
+// Verificar ingreso de texto válido
+// Alert en caso de no ingreso de texto o ingreso de números
+prompt(alert('Ingreso no válido'));
+// Funciones (creo) para caja de texto, botón agregarAmigo y botón sortearAmigo
