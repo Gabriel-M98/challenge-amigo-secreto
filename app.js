@@ -1,30 +1,44 @@
-// Variables
-let nombresUsuarios = []
+// Array vacío para agregar lista de nombres
+let nombresUsuarios = [];
 
-//1. Capturar el nombre escrito por el usuario en el campo de texto.
-document.querySelector('#amigo');
-
-//2. Si el campo está vacío, mostrar alerta y no hacer nada más.
+// Ingresar amigo
 function agregarAmigo() {
-
-}
-if () {
-
-} else {
-
+    let input = document.querySelector('#amigo'); 
+    let nombre = input.value.trim();
 }
 
-//3. Si el nombre es válido, agregarlo a un array.
+// Validación amigo ingresado
+if (nombre === "") {
+    alert("Ingresa un nombre válido");
+    return;
+}
+
+// Agregar nombre al array
+nombresUsuarios.push(nombre);
+input.value = ""; // Limpiar campo de entrada
+
+// Función para actualizar lista en panalla
+actualizarLista(); // Se actualiza lista en pantalla
 function actualizarLista() {
-    
-}
-//4. Mostrar la lista de nombres en pantalla.
-document.querySelector('#listaAmigos');
+    let lista = document.createElement("li"); // <li> es una etiqueta para crear elementos en bloque o lista
+    lista.innerHTML = ""; // Limpia lista antes de actualizarla
 
-//5. Si el usuario presiona "Sortear", elegir un nombre al azar del array.
+    // Recorremos el array nombreUsuarios y agregamos cada nombre a la lista
+    nombresUsuarios.forEach(function(nombre) {
+        let elemento = document.createElement("li"); // Crea <li>
+        elemento.textContent = nombre; // Se agrega nombre a <li>
+        lista.appendChild(elemento); //Se agrega <ul> al <li>
+    });
+}
+
+// Función que sortea amigos
 function sortearAmigo() {
-
+    if (nombresUsuarios.length === 0) {
+        alert("Debes ingresar al menos un nombre a la lista");
+        return;
+    }
+    let indiceAleatorio = Math.floor(Math.random() * nombresUsuarios.length); // Generación de índice aleatorio
+    let amigoSecreto = nombresUsuarios[indiceAleatorio];
+    let resultado = document.querySelector('#resultado');
+    resultado.innerHTML = `<li> ¡El amigo secreto es <strong>$[amigoSecreto]!</strong> </li>`;
 }
-
-//6. Mostrar el nombre sorteado en la página.
-//7. Manejar errores (evitar nombres vacíos, evitar sortear si no hay nombres, etc.).
