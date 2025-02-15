@@ -5,20 +5,16 @@ let nombresUsuarios = [];
 function agregarAmigo() {
     let input = document.querySelector('#amigo'); 
     let nombre = input.value.trim();
-}
-
-// Validación amigo ingresado
 if (nombre === "") {
     alert("Ingresa un nombre válido");
     return;
-}
+} }
 
 // Agregar nombre al array
 nombresUsuarios.push(nombre);
 input.value = ""; // Limpiar campo de entrada
 
 // Función para actualizar lista en panalla
-actualizarLista(); // Se actualiza lista en pantalla
 function actualizarLista() {
     let lista = document.createElement("li"); // <li> es una etiqueta para crear elementos en bloque o lista
     lista.innerHTML = ""; // Limpia lista antes de actualizarla
@@ -40,5 +36,5 @@ function sortearAmigo() {
     let indiceAleatorio = Math.floor(Math.random() * nombresUsuarios.length); // Generación de índice aleatorio
     let amigoSecreto = nombresUsuarios[indiceAleatorio];
     let resultado = document.querySelector('#resultado');
-    resultado.innerHTML = `<li> ¡El amigo secreto es <strong>$[amigoSecreto]!</strong> </li>`;
+    resultado.innerHTML = `<li> ¡El amigo secreto es <strong>`${amigoSecreto}`!</strong> </li>`;
 }
