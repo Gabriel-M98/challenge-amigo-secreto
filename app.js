@@ -8,15 +8,16 @@ function agregarAmigo() {
 if (nombre === "") {
     alert("Ingresa un nombre válido");
     return;
-} }
-
+}
 // Agregar nombre al array
 nombresUsuarios.push(nombre);
 input.value = ""; // Limpiar campo de entrada
+    actualizarLista();
+}
 
 // Función para actualizar lista en panalla
 function actualizarLista() {
-    let lista = document.createElement("li"); // <li> es una etiqueta para crear elementos en bloque o lista
+    let lista = document.querySelector("#listaAmigos"); // <li> es una etiqueta para crear elementos en bloque o lista
     lista.innerHTML = ""; // Limpia lista antes de actualizarla
 
     // Recorremos el array nombreUsuarios y agregamos cada nombre a la lista
@@ -36,5 +37,5 @@ function sortearAmigo() {
     let indiceAleatorio = Math.floor(Math.random() * nombresUsuarios.length); // Generación de índice aleatorio
     let amigoSecreto = nombresUsuarios[indiceAleatorio];
     let resultado = document.querySelector('#resultado');
-    resultado.innerHTML = `<li> ¡El amigo secreto es <strong>`${amigoSecreto}`!</strong> </li>`;
+    resultado.innerHTML = `<li>¡El amigo secreto elegido es ${amigoSecreto}!</li>`
 }
